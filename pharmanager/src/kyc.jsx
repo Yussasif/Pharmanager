@@ -1,115 +1,23 @@
 import React, { useState } from "react";
 
-import Logop from "../src/assets/image 26.png"
+import Details from "./details";
 
-function Tracker(props) {
+import Tracker from "./tracker";
 
-    return (
-        <div className="tracker">
-            <div className="commonClass">
-
-                <div className="items">
-                    <p className="circle">1</p>
-                    <div className="hr"></div>
-                    <p className="circle">2</p>
-                    <div className="hr"></div>
-                    <p className="circle">3</p>
-                    <div className="hr"></div>
-                    <p className="circle">4</p>
-                    {/* <p className="descr">kyc</p> */}
-                </div>
-
-                <div className="itemsT">
-                    <p className="descr1">Kyc</p>
-                    <p className="descr">Review</p>
-                    <p className="descr">Payment</p>
-                    <p className="descr">Complete</p>
-                </div>
-
-                {/* <div className="hr"></div> */}
-            </div>
-
-            {/* seperate */}
+import Input from "./input";
 
 
-        </div>
-    )
 
-}
+
 
 
 // details component
 
-function Details() {
-    return (
-        <>
-            <h1>Dispensary counter Details</h1>
 
-
-            <div className="card-container">
-                <div className="productD">
-                    <img src={Logop} alt="product" />
-                    <div className="text-descr">
-                        <h3 className="product-name">Penicillin ointment</h3>
-                        <p className="pharm-addr">Rx pharmacy, oshodi</p>
-                        <p className="drop">20mmg 11 Tubes drops per use</p>
-                        <p className="link"><a href="#">View dispensary details</a></p>
-
-                        <div className="absolute">
-                            <p className="prz">$20.00</p>
-                            <p>Available</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* second card */}
-                <div className="counterD">
-                    <p className="card-header">Quantity</p>
-
-                    <div className="count">
-                        <p className="qualityd">1</p>
-                        <div className="btn">
-
-                            <button>-</button>
-                            <button>+</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                {/* third card */}
-                <div className="due">
-                    <p className="card-header">Total fee</p>
-                    <p>Due today</p>
-                    <p className="price">$40.00</p>
-                </div>
-
-
-
-
-            </div>
-
-        </>
-    )
-
-}
 
 // input component
 
-function Input({ label, inputType, placeHolder }) {
-    return (
-        <div className="input-field">
-            <label htmlFor="">
-                {label}
-            </label>
-            <input type={inputType}
-                placeholder={placeHolder}
 
-            />
-        </div>
-    )
-}
 
 // const nert ={ inputType, placeHolder, label }
 
@@ -118,9 +26,6 @@ function Kycpage() {
     // const inputD 
 
     // { inputType, placeHolder, label }
-
-
-
     //    const [input, setInput] = useState({})
 
 
@@ -137,7 +42,8 @@ function Kycpage() {
 
                 <div>
                     <h2>Dispensary details</h2>
-                    <Details />
+                    {/* <Details /> */}
+                    <Details/>
                     {/* details component */}
                 </div>
 
