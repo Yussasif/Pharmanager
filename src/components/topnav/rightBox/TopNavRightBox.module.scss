@@ -1,0 +1,51 @@
+@use "../../../scss/abstracts/" as *;
+
+.topNavBox_right {
+  @include flex(center, space-evenly);
+  flex: 1;
+  @media screen and (max-width: 975px) {
+    flex: 2;
+  }
+  @media screen and (max-width: 325px) {
+    flex-wrap: wrap;
+  }
+}
+.wrapper {
+  flex: 1;
+  // background-color: red;
+  @include flex(center, flex-end);
+
+  @media screen and (max-width: 975px) {
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 325px) {
+    order: 2;
+    margin-top: 0.5rem;
+    justify-content: space-between;
+  }
+}
+.icon_wrapper{
+  @extend .wrapper;
+  position: relative;
+  
+  .icon{
+  font-size: 30px; 
+  margin-right: 10px;
+  position: relative;
+  }
+
+  .count{
+    position: absolute;
+    bottom: 50%;
+    right: 10px;
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+}
