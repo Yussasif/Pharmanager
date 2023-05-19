@@ -1,8 +1,13 @@
 import React from 'react'
 
+// importing pages
+import Card from '../components/Cards/card'
+
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <section>
+      Dashboard
+    </section>
   )
 }
 
