@@ -1,4 +1,3 @@
-import React from "react";
 import Profile from "./profile/Profile";
 
 import { Icon } from "@iconify/react";

@@ -1,0 +1,53 @@
+.counter-box {
+    display: flex;
+    width: 100%;
+    color: #252525;
+    justify-content: space-around;
+    margin-bottom: 1em;
+    height: 170px;
+}
+
+.counter-box .counter, .counter-box .price{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #dddada;
+    width: 40%;
+}
+
+.counter-box h3 {
+    padding: 2em;
+    background-color: #eeeaea;
+    color: #4B4B4B;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.counter-box span {
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.counter-box img{
+    width: 40px;
+}
+
+.counter .lower-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1em;
+}
+.price .lower-box {
+    padding-left: 2em;
+}
+.price .lower-box div {
+    padding-top: .5em;
+}
+
+.counter .lower-box span, .counter .lower-box img{
+    padding-right: .6em;
+}
+
+.counter .lower-box span{
+    font-size: 1em;
+}

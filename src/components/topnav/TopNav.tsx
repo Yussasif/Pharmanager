@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Icon } from "@iconify/react";
 import { useWindowSize } from "usehooks-ts";
 import SearchBox from "./searchBox/SearchBox";
@@ -7,8 +7,12 @@ import SidebarContext from "../../store/sidebarContext";
 
 import classes from "./TopNav.module.scss";
 
-function TopNav() {
-  const sideOpenCtx = useContext(SidebarContext);
+interface props {
+  component: JSX.Element
+}
+
+function TopNav(props : props) {
+  const sideOpenCtx = React.useContext(SidebarContext);
   const { width } = useWindowSize();
 
   function openSidebarHandler() {
@@ -35,7 +39,7 @@ function TopNav() {
           </div>
         </div>
         <div className={classes.search_desktop_wrapper}>
-          <SearchBox />
+          {props.component}
         </div>
       </div>
       <TopNavRightBox />

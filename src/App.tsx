@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -7,7 +7,7 @@ import AuthLayout from "./layout/AuthLayout";
 import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
 
 import "./scss/App.scss";
-import Inbounds from "./pages/Inbounds";
+import Inbounds from "./pages/Inbound";
 import Manager from "./pages/Manager";
 import Crm from "./pages/Crm";
 import BankOffice from "./pages/BankOffice";
@@ -19,12 +19,12 @@ const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<LoadingSpinner />}>
+      <React.Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* <Route element={<AuthLayout />}> */}
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
-              <Route path="/inbounds" element={<Inbounds />}/>
+              <Route path="/inbounds/*" element={<Inbounds />}/>
               <Route path="/manager" element={<Manager />}/>
               <Route path="/crm" element={<Crm />}/>
               <Route path="/bankOffice" element={<BankOffice />}/>
@@ -33,7 +33,7 @@ function App() {
             </Route>
           {/* </Route> */}
         </Routes>
-      </Suspense>
+      </React.Suspense>
     </BrowserRouter>
   );
 }

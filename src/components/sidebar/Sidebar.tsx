@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useWindowSize } from "usehooks-ts";
 import { useTranslation } from "react-i18next";
@@ -10,11 +10,11 @@ import { Icon } from "@iconify/react";
 import classes from "./Sidebar.module.scss";
 
 function Sidebar() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = React.useState(0);
   const { width } = useWindowSize();
   const location = useLocation();
-  const sidebarCtx = useContext(SidebarContext);
-  const loginCtx = useContext(LoginContext);
+  const sidebarCtx = React.useContext(SidebarContext);
+  const loginCtx = React.useContext(LoginContext);
   const { t } = useTranslation();
 
   function openSidebarHandler() {
@@ -28,7 +28,7 @@ function Sidebar() {
     loginCtx.toggleLogin();
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];
     const activeItem = sidebarNav.findIndex((item) => item.section === curPath);
 

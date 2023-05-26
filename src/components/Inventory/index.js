@@ -1,4 +1,4 @@
 import Inventory from "./Inventory";
-import './Inventory.css'
+import './index.css'
 
 export default Inventory
