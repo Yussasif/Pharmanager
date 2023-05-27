@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/sidebar/Sidebar";
@@ -9,9 +9,9 @@ import SidebarContext from "../store/sidebarContext";
 import classes from "./MainLayout.module.scss";
 
 const MainLayout = () => {
-  const sidebarCtx = React.useContext(SidebarContext);
+  const sidebarCtx = useContext(SidebarContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (document.body.classList.contains("sidebar__open"))
       document.body.classList.remove("sidebar__open");
   }, []);
