@@ -7,6 +7,7 @@ html {
   /* ****Colors**** */
   --primaryColor: #009FE3;
   --secondaryColor: #54A4CC;
+  --scrollBarColor: rgb(10, 133, 233);
   //light theme
   --bgc: #767676;
   --card-bgc: #F9F9F9;
@@ -252,14 +253,15 @@ html[dir="rtl"] {
 //---------- scrollbar styles
 
 ::-webkit-scrollbar {
+  // display: none;
   width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--bgc);
+  background-color: var(--primaryColor);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--secondaryColor);
+  background-color: var(--scrollBarColor);
   border-radius: 100vw;
 }

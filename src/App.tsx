@@ -13,6 +13,7 @@ import Crm from "./pages/Crm";
 import BankOffice from "./pages/BankOffice";
 import Settings from "./pages/Settings";
 import HelpDesk from "./pages/HelpDesk";
+import PersistentDrawerLeft from "./layout/NewMainLayout";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 
@@ -22,7 +23,7 @@ function App() {
       <React.Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* <Route element={<AuthLayout />}> */}
-            <Route path="/" element={<MainLayout />}>
+            <Route path="/" element={<MainLayout/>}>
               <Route index element={<Dashboard />} />
               <Route path="/inbounds/*" element={<Inbounds />}/>
               <Route path="/manager" element={<Manager />}/>
