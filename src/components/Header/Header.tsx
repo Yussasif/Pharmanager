@@ -17,7 +17,6 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -33,13 +32,13 @@ const Header: React.FC<props> = (props) => {
         >
           <div className={classes.navTitle}>
                <h1>{props.text}</h1>
-               <DrawerHeader>
-                <div className={classes.navTitle_arrow}>
+               <div className={classes.navTitle_text}>
+                <div className={classes.navTitle_text_arrow}>
 
                 <Icon color="white" icon="majesticons:arrow-left"/>
                 </div>
                <b> <small>Create an invoice </small></b>
-               </DrawerHeader>
+               </div>
           </div>
 
           <DrawerHeader>
