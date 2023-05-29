@@ -2,7 +2,6 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { useWindowSize } from "usehooks-ts";
 import SearchBox from "./searchBox/SearchBox";
-import TopNavRightBox from "./rightBox/TopNavRightBox";
 import SidebarContext from "../../store/sidebarContext";
 
 import classes from "./TopNav.module.scss";
@@ -42,7 +41,6 @@ function TopNav(props : props) {
           {props.component}
         </div>
       </div>
-      <TopNavRightBox />
       <br />
       <div className={classes.search_tablet_wrapper}>
         <SearchBox />

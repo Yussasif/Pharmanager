@@ -1,4 +1,18 @@
 import Inbounds from "./Inbounds";
-import './index.css'
+import withRoutes from '../../hoc/withSubRoutes/withRoutes'
+import Header from '../../components/Header/Header'
 
-export default Inbounds
+
+export default withRoutes(Inbounds, {
+    TopNavComponent: <Header text="Invoice"/>
+    , subRoutes: [
+    {
+      path: "/checkout", 
+      Route: <div>Checkout</div>
+    },
+    {
+      path: "/invoice",
+      Route: <div>Invoice</div>
+    }
+      ]}
+  )
