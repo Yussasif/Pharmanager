@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layout/MainLayout";
-import AuthLayout from "./layout/AuthLayout";
+// import AuthLayout from "./layout/AuthLayout";
 import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
 
 import "./scss/App.scss";
@@ -13,7 +13,6 @@ import Crm from "./pages/Crm";
 import BankOffice from "./pages/BankOffice";
 import Settings from "./pages/Settings";
 import HelpDesk from "./pages/HelpDesk";
-import PersistentDrawerLeft from "./layout/NewMainLayout";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 
