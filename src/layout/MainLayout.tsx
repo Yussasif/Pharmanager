@@ -19,8 +19,7 @@ const MainLayout: React.FC = () => {
       <Box component="main"
         sx={{
           flexGrow: 1,
-          flexWrap: "wrap",
-          transition: toggleWidth? 'none':'width 0.2s ease-in-out 0.1s',
+          transition: toggleWidth? 'none':'width 0.1s ease-in-out 0.1s',
           width: toggleWidth? 'calc(100% - 240px)': '95%',
         }}
       >
