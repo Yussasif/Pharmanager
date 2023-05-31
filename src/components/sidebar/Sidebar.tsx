@@ -1,9 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { styled, Theme, CSSObject } from '@mui/material/styles';
 import { Link, useLocation } from "react-router-dom";
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-// import  { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
@@ -48,32 +47,10 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'flex-end',
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
-// interface AppBarProps extends MuiAppBarProps {
-//   open?: boolean;
-// }
 
-
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== 'open',
-// })<AppBarProps>(({ theme, open }) => ({
-//   zIndex: theme.zIndex.drawer + 1,
-//   transition: theme.transitions.create(['width', 'margin'], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   ...(open && {
-//     marginLeft: drawerWidth,
-//     width: `calc(100% - ${drawerWidth}px)`,
-//     transition: theme.transitions.create(['width', 'margin'], {
-//       easing: theme.transitions.easing.sharp,
-//       duration: theme.transitions.duration.enteringScreen,
-//     }),
-//   }),
-// }));
 
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -92,15 +69,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-// const Dashboard = {
-//   id: 0,
-//   link: "/",
-//   section: "dashboard",
-//   icon: "lucide:layout-dashboard", //width:"20"
-//   text: "Dashboard",
-// }
+
 export default function MiniDrawer() {
-  // const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const [activeIndex, setActiveIndex] = React.useState(1);
   const location = useLocation();
@@ -125,25 +95,6 @@ export default function MiniDrawer() {
       display: 'flex'
     }}>
       <CssBaseline />
-      {/* <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: 'none' }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
       <Drawer
       PaperProps={{
         sx: {
