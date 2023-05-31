@@ -69,8 +69,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
+interface props {
+  toggler: Function
+}
 
-export default function MiniDrawer() {
+export default function MiniDrawer({toggler}: props) {
   const [open, setOpen] = React.useState(true);
   const [activeIndex, setActiveIndex] = React.useState(1);
   const location = useLocation();
@@ -78,10 +81,12 @@ export default function MiniDrawer() {
   
   const handleDrawerOpen = () => {
     setOpen(true);
+    toggler(true)
   };
   
   const handleDrawerClose = () => {
     setOpen(false);
+    toggler(false)
   };
   
   React.useEffect(() => {
@@ -92,7 +97,8 @@ export default function MiniDrawer() {
   }, [location]);
   return (
     <Box sx={{ 
-      display: 'flex'
+      display: 'flex',
+      flexGrow: 1,
     }}>
       <CssBaseline />
       <Drawer
