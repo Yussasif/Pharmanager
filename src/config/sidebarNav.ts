@@ -34,7 +34,7 @@ const sidebarNavAbove = [
     link: "/bankOffice",
     section: "bankOffice",
     icon: "solar:chat-round-money-bold",
-    text: "Bank-office",
+    text: "Back-office",
   },
   {
     id: 5,

@@ -14,7 +14,7 @@ import { Icon } from '@iconify/react';
 import classes from './button.module.scss'
 
 const CustomButton = ({bgColor, txtColor, btnValue}) => {
-  let pop = true;
+  // let pop = true;
   return (
     <div>
       <PopupState variant="popover" popupId="demo-popup-menu">
