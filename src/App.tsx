@@ -7,7 +7,7 @@ import AuthLayout from "./layout/AuthLayout";
 import LoadingSpinner from "./components/UI/loadingSpinner/LoadingSpinner";
 
 import "./scss/App.scss";
-import Inbounds from "./pages/Inbound";
+import Inbounds from "./pages/Inbounds";
 import Manager from "./pages/Manager";
 import Crm from "./pages/Crm";
 import BankOffice from "./pages/BankOffice";
