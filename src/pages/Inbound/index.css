@@ -1,0 +1,62 @@
+.header div{
+    display: flex;
+}
+.inbound {
+    width: 100%;
+    margin: 50px auto;
+    border: 2px solid #54A4CC;
+    transform: scaleX(0.95);
+    transform-origin: right;
+}
+.inbound-top {
+    display: flex;
+}
+.inbound-top .restuarant-img {
+    padding-top: 5em;
+    padding-left: 5em;
+}
+.header-name {
+    margin: 1em 0;
+    font-size: 25px;
+}
+
+.inbound .page-image {
+    transform: scale(1.123);
+    margin-left: 0;
+    padding: 0;
+    display: inline;
+    transform-origin: top;
+}
+  
+.invoice {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2em;
+}
+
+.invoice .icon {
+    width: fit-content;
+    padding-right: 1em;
+}
+.invoice p {
+    font-size: 12px;
+}
+.header {
+    display: flex;
+    width: 50%;
+    margin: 50px auto;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-between;
+}
+
+.inventories {
+    padding-left: 2em;
+}
+
+
+.socials {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
