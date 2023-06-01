@@ -4,7 +4,7 @@ import Header from '../../components/Header/Header'
 
 
 export default withRoutes(Inbounds, {
-    TopNavComponent: <Header text="Invoice"/>
+    TopNavComponent: <Header text="Dispensary Counter"/>
     , subRoutes: [
     {
       path: "/checkout", 

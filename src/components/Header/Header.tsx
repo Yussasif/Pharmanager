@@ -27,6 +27,8 @@ const Header: React.FC<props> = (props) => {
               display: 'flex',
               justifyContent: 'space-between',
               boxSizing: 'border-box',
+              marginTop: '20px',
+              marginBottom: '15px',
               width: '100%'
         }}
         >
@@ -42,7 +44,7 @@ const Header: React.FC<props> = (props) => {
                 </div>
                }
           </div>
-
+          <div className={classes.navTitle_right}>
           <DrawerHeader>
             <div className={classes.navTitle_cart}>
               <Icon fontSize="20px" icon='iconoir:cart'/>
@@ -53,6 +55,8 @@ const Header: React.FC<props> = (props) => {
             }} fontSize="20px" icon='carbon:notification'/>
             <Profile/>
           </DrawerHeader>
+          <p className={classes.navTitle_right_id}>User ID: 1234567</p>
+          </div>
         </Box>
         
   )

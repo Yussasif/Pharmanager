@@ -96,12 +96,13 @@ export default function MiniDrawer({toggler}: props) {
     setActiveIndex(curPath.length === 0 ? 0 : activeItem);
   }, [location]);
   return (
-    <Box sx={{ 
+    <Box  sx={{ 
       display: 'flex',
       flexGrow: 1,
-    }}>
+    }}
+    >
       <CssBaseline />
-      <Drawer
+      <Drawer className="bar"
       PaperProps={{
         sx: {
           backgroundColor: "#009FE3",

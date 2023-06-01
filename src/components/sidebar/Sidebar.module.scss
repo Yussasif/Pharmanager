@@ -1,21 +1,19 @@
 @use "../../scss/abstracts/" as *;
 @use "sass:math";
 
-.sidebar {
-  @include flex(stretch, center);
-  flex-direction: column;
-  background-color: var(--primaryColor);
-  color: #fff !important; ;
-  // border: 1px solid blue;
-  width: $sideBarOpenWidth;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  transition: all 0.5s ease-in-out;
-  z-index: 200;
-  overflow-y: auto;
-  overflow-x: hidden;
 
+
+.sidebar::-webkit-scrollbar {
+  width: 0.5rem;
+  display: none;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 100vw;
+}
+.sidebar {
+  
   &.sidebar_close {
     width: 50px;
     @include tablet {
