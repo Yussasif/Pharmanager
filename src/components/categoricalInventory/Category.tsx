@@ -1,5 +1,5 @@
 import React from 'react'
-import Inventory from '../Inventory'
+import Inventory from '../Inventorys'
 import image from './image.svg'
 import rightArrow from './right-arrow.svg'
 import leftArrow from './left-arrow.svg'

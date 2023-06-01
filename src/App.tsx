@@ -22,7 +22,7 @@ function App() {
       <React.Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* <Route element={<AuthLayout />}> */}
-            <Route path="/" element={<MainLayout/>}>
+            <Route path="/" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
               <Route path="/inbounds/*" element={<Inbounds />}/>
               <Route path="/manager" element={<Manager />}/>
