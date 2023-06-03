@@ -3,12 +3,13 @@ import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/sidebar/Sidebar";
+// import classes from './MainLayout.module.scss'
 
 const MainLayout: React.FC = () => {
   const [toggleWidth, setToggleWidth] = React.useState(true)
 
   return (
-    <Box sx={{
+    <Box  sx={{
       display: 'flex',
       width: '100%',
       paddingLeft: '1em',

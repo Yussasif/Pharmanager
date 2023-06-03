@@ -3,12 +3,12 @@
 
 
 
-.sidebar::-webkit-scrollbar {
+.sidebar ::-webkit-scrollbar {
   width: 0.5rem;
-  display: none;
+  display: block;
 }
 
-.sidebar::-webkit-scrollbar-thumb {
+.sidebar ::-webkit-scrollbar-thumb {
   background-color: white;
   border-radius: 100vw;
 }

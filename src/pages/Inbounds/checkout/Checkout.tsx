@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CounterPrice from '../../../components/CounterPrice'
 import Dispensary from '../../../components/Dispensary'
 
-const Checkout = () => {
+interface props {
+	onMount: Function
+}
+
+const Checkout: React.FC<props> = ({onMount}) => {
+
+    useEffect(()=> {
+        onMount({text: 'Dispensary Counter', subtext:'checkout'})
+    }, [])
+
     return (
         <div className="checkout-page">
             <div className='checkout'>

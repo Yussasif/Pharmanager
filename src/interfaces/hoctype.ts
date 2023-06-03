@@ -1,7 +1,9 @@
 import React from "react"
-
+interface props {
+	onMount: Function
+}
 export type route = {
-    Route : JSX.Element
+    Route : React.FC<props>
     path: string
 }
 

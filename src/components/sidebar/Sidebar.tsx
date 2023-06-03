@@ -96,7 +96,7 @@ export default function MiniDrawer({toggler}: props) {
     setActiveIndex(curPath.length === 0 ? 0 : activeItem);
   }, [location]);
   return (
-    <Box  sx={{ 
+    <div className={classes.sidebar}  style={{ 
       display: 'flex',
       flexGrow: 1,
     }}
@@ -220,6 +220,6 @@ export default function MiniDrawer({toggler}: props) {
           ))}
         </List>
       </Drawer>
-    </Box>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import CustomButton from '../../components/Button/Button'
 import Card from '../../components/Cards/card'
 import  '../../scss/Pages.scss'
@@ -7,8 +7,14 @@ import classes from '../../components/Button/button.module.scss'
 
 import CustomTable from '../../components/tables/Table'
 
-const Inbounds = () => {
-  
+interface props {
+	onMount: Function
+}
+
+const Inbounds: React.FC<props> = ({onMount}) => {
+  useEffect(()=> {
+		onMount({text: 'Dispensary Counter'})
+	},[onMount])
   return (
     <section>
       {/* top button */}

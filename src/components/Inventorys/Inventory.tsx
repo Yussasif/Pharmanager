@@ -1,8 +1,11 @@
 import React from 'react'
-import location from './location.svg'
-import prescribed from './prescribed.svg'
-import quantity from './quantity.svg'
-import weight from './weight.svg'
+import location from '../../assets/svg/location.svg'
+import prescribed from '../../assets/svg/prescribe.svg'
+import quantity from '../../assets/svg/quantity.svg'
+import weight from '../../assets/svg/weight.svg'
+import Image from '../Image'
+// import rightArrow from '../../assets/svg/right-arrow.svg'
+// import leftArrow from '../../assets/svg/left-arrow.svg'
 
 interface props {
     image: string

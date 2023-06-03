@@ -7,7 +7,6 @@ import classes from './Header.module.scss'
 
 
 interface props {
-    open?: boolean
     text?: string
     subtext?: string
 }

@@ -1,8 +1,12 @@
 import React from 'react'
 import Inventory from '../Inventorys'
-import image from './image.svg'
-import rightArrow from './right-arrow.svg'
-import leftArrow from './left-arrow.svg'
+import image from '../../assets/svg/image.svg'
+import Image from '../Image'
+import rightArrow from '../../assets/svg/right-arrow.svg'
+import leftArrow from '../../assets/svg/left-arrow.svg'
+
+
+console.log(rightArrow)
 
 interface props {
     name: string
@@ -19,8 +23,8 @@ const Category: React.FC<props> = ({name, count}) => {
 			<div className="top-layer">
 				<h2>{name}</h2>
 				<div className="arrow">
-					<img src={leftArrow} alt="" width="20px"/>
-					<img src={rightArrow} alt="" width="20px"/>
+					<Image imagePath={leftArrow} alt="left arrow" callback={()=> {}} />
+					<Image imagePath={rightArrow} alt="rignt arrow" callback={()=> {}}/>
 				</div>
 			</div>
 			<div className='array'>

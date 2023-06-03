@@ -1,19 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { routes } from '../../interfaces/hoctype';
+import Header from '../../components/Header/Header';
 
-
-const withRoutes  = <p extends object>(Component: React.ComponentType<p>, routes: routes) => {
+interface header {
+    text?: string
+    subtext?: string
+}
+const withRoutes  = <p extends object>(routes: routes) => {
     
     function RouteComponent(props: p){
+        const [headerText, setHeaderText] = useState<header>({})
+
+        const handleMount = (header: header)=> {
+            setHeaderText({...header})
+        }
         return (
             <>
-            {routes.TopNavComponent}
+            <Header text={headerText.text}
+            subtext={headerText.subtext}
+            />
             <Routes>
-                <Route path='/' element ={<Component {...props}/>}/>
                 {routes.subRoutes.map((subRoute, index)=> 
                     <React.Fragment key={index}>
-                        <Route path={subRoute.path} element={subRoute.Route}/>
+                        <Route path={subRoute.path} element={<subRoute.Route onMount={handleMount}/>}/>
                     </React.Fragment>
                 )}
         </Routes>
