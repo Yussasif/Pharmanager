@@ -17,7 +17,7 @@ interface props {
 const CreateInvoice: React.FC<props> = ({onMount}) => {
 	useEffect(()=>{
 		onMount({text: 'Dispensary Counter', subtext: 'create an invoice'})
-	},[])
+	},[onMount])
 	return (
 		<div className='inbound'>
 			<LoadImage callback={()=> {}} alt="" className='page-image' imagePath={image2} height="200px" width="200px" />

@@ -10,7 +10,7 @@ const Checkout: React.FC<props> = ({onMount}) => {
 
     useEffect(()=> {
         onMount({text: 'Dispensary Counter', subtext:'checkout'})
-    }, [])
+    }, [onMount])
 
     return (
         <div className="checkout-page">

@@ -11,22 +11,22 @@ interface props{
 
 const LoadImage : React.FC<props>= (props) => {
     const [loaded, setLoaded] = useState(false);
-
+  const {imagePath, callback} = props
   useEffect(() => {
     const image = new Image();
-    image.src = props.imagePath;
+    image.src = imagePath;
     image.onload = () => {
       setLoaded(true);
-      props.callback(true)
+      callback(true)
     };
-  }, [props.imagePath]);
+  }, [imagePath, callback]);
 
   if (!loaded) {
     return null; 
   }
   return (
         <img src={props.imagePath} 
-        alt={props.alt} width={props.width} 
+        alt={"props.alt"} width={props.width} 
         height={props.height}
         className={props.className}
         />
