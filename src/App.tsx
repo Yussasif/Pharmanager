@@ -10,7 +10,7 @@ import "./scss/App.scss";
 import Inbounds from "./pages/Inbounds";
 import Manager from "./pages/Manager";
 import Crm from "./pages/Crm";
-import BankOffice from "./pages/BankOffice";
+import BankOffice from "./pages/BackOffice";
 import Settings from "./pages/Settings";
 import HelpDesk from "./pages/HelpDesk";
 
