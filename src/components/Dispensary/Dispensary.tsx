@@ -7,9 +7,9 @@ const Dispensary: React.FC = () => {
             <div className='drug-dispensary'>
                 <img src={drugimage} alt="drug" width="10px"/>
                 <div className='description'>
-                    <h3>Penicillin ointment</h3>
+                    <h4>Penicillin ointment</h4>
                     <span>RX Pharmacy, Oshodi</span>
-                    <h3>200mg l 1 Tube l 2 drops per use</h3>
+                    <h4>200mg l 1 Tube l 2 drops per use</h4>
 
                     <p>View dispensary details</p>
                 </div>

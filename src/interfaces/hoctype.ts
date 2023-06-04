@@ -1,10 +1,10 @@
 import React from "react"
-interface props {
-	onMount: Function
-}
+
 export type route = {
-    Route : React.FC<props>
+    Route : React.FC
     path: string
+    text?: string
+    subtext?: string
 }
 
 export interface routes {

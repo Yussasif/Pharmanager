@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import image2 from '../../../assets/svg/image2.svg'
 import love from '../../../assets/svg/love.svg'
 import facebook from '../../../assets/svg/facebook.svg'
@@ -10,14 +10,10 @@ import Category from '../../../components/categoricalInventory'
 import LoadImage from '../../../components/Image'
 import SearchBox from '../../../components/searchBox/SearchBox'
 
-interface props {
-	onMount: Function
-}
 
-const CreateInvoice: React.FC<props> = ({onMount}) => {
-	useEffect(()=>{
-		onMount({text: 'Dispensary Counter', subtext: 'create an invoice'})
-	},[onMount])
+
+const CreateInvoice: React.FC = () => {
+	
 	return (
 		<div className='inbound'>
 			<LoadImage callback={()=> {}} alt="" className='page-image' imagePath={image2} height="200px" width="200px" />

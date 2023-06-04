@@ -1,15 +1,13 @@
 .checkout-page {
-    display: flex;
-    flex-direction: column;
-}
-.checkout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto  auto;
     padding: 2em;
 }
 
+
 .checkout-page .checkout-items {
-    align-self: flex-end;
-    margin-right: 110px;
+    width: 100%;
 }
 
 .checkout-items, .checkout-items div {
@@ -24,13 +22,13 @@
 .checkout-items div, .checkout-items button {
     background: #54A4CC;
     color: white;
-    padding: .6em 2em;
+    padding: .8em 2em;
     font-size: 12px;
-    width: 250px;
+    margin-top: 40px;
+    border: none;
+    width: 100%;
 }
 
 .checkout-items button {
-    border: none;
     padding: 1em 2em;
-    margin-top: 40px;
 }

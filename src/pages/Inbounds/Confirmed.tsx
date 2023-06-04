@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import LoadImage from '../../components/Image'
 import bigAvatar from '../../assets/svg/bigAvatar.svg'
 import {Button} from '@mui/material';
 import './index.css'
 
-interface props {
-	onMount: Function
-}
-const Confirmed: React.FC<props> = ({onMount}) => {
-    useEffect(()=> {
-		onMount({text: 'Dispensary Counter'})
-	},[onMount])
+
+const Confirmed: React.FC = () => {
+
   return (
     <div className='confirmed'>
         <LoadImage callback={()=>{}} alt="order confirmed"

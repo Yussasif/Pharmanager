@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import CounterPrice from '../../../components/CounterPrice'
 import { Grid, TextField, Box, Button} from '@mui/material';
 
@@ -43,16 +43,8 @@ function BpRadio(props: RadioProps) {
 }
 
 
-interface props {
-	onMount: Function
-}
 
-
-
-const PrintInvoice: React.FC<props> = ({onMount}) => {
-	useEffect(()=> {
-		onMount({text: 'Dispensary Counter', subtext: 'Checkout'})
-	},[onMount])
+const PrintInvoice: React.FC = () => {
 	return (
 		<div className='block-invoice'>
 			<div className="counter-item-session">
