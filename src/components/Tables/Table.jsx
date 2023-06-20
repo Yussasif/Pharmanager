@@ -8,12 +8,12 @@ import Paper from '@mui/material/Paper';
 
 import { Icon } from '@iconify/react';
 
-import { images } from '../../constants/'
+import { images } from '../../constants'
 
 import classes from './table.module.scss'
 
 // setting a global variable to tweak the content of the table if there are any records or not
-let record  = false;
+let record  = true;
 
 const row = [
     {

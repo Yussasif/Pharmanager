@@ -10,10 +10,24 @@
 
 .inbound {
     width: 97%;
+    height: 70vh;
     margin-bottom: 10px;
     border: 2px solid #54A4CC;
     transform: scaleX(0.97);
     transform-origin: right;
+    overflow-y: scroll;
+}
+.inbound::-webkit-scrollbar {
+    display: block;
+    width: .5rem;
+}
+
+.inbound::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+    border-radius: 100vh;
+}
+.inbound::-webkit-scrollbar-track {
+    display: none;
 }
 .inbound-top {
     display: flex;

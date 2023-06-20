@@ -7,6 +7,8 @@ export default withRoutes({
     {
       path: "/", 
       Route: Manager, 
+      // subtext: 'Procurement',
+      
     },
     ]}
   )

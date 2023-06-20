@@ -9,9 +9,18 @@
 }
 
 .sidebar ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: transparent;
   border-radius: 100vw;
+  transition-timing-function: ease-in-out;
+  transition-delay: 2s;
+  transition-duration: 1s;
 }
+
+.sidebar:hover ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255);
+  
+}
+
 .sidebar {
   
   &.sidebar_close {

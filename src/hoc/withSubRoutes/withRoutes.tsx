@@ -6,6 +6,8 @@ import Header from '../../components/Header/Header';
 interface header {
     text?: string
     subtext?: string
+    cartCount?: number
+    h?: string
 }
 const withRoutes  = <p extends object>(routes: routes) => {
     
@@ -25,18 +27,20 @@ const withRoutes  = <p extends object>(routes: routes) => {
         useEffect(()=>{
 
             const route = getCurrentRoute()
-            setHeaderText({text: route.text, subtext: route.subtext})
+            setHeaderText({text: route.text, subtext: route.subtext, h: route.prevRoute})
 
         },[getCurrentRoute])
         return (
             <>
             <Header text={headerText.text}
-            subtext={headerText.subtext}
+                subtext={headerText.subtext}
+                cartCount={headerText.cartCount}
+                h={headerText.h}
             />
             <Routes>
                 {routes.subRoutes.map((subRoute, index)=> 
                     <React.Fragment key={index}>
-                        <Route path={subRoute.path} element={<subRoute.Route/>}/>
+                        <Route path={subRoute.path} element={<subRoute.Route  callback={(data: number)=> setHeaderText({...headerText, cartCount: data})}/>}/>
                     </React.Fragment>
                 )}
         </Routes>

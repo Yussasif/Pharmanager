@@ -1,8 +1,10 @@
 import React from 'react'
+import GraphArea from '../../components/GraphArea'
+
 
 const HelpDesk = () => {
   return (
-    <div>HelpDesk</div>
+    <GraphArea/>
   )
 }
 

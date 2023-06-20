@@ -5,31 +5,35 @@ import PrintInvoice from "./printInvoice";
 import CreateInvoice from "./createInvoice";
 import Confirmed from "./Confirmed";
 import Application from "./Info";
+import InvoiceCR from "./invoice-cr";
 
 export default withRoutes( {
      subRoutes: [
       {
         path: '/',
         Route: Inbounds,
-        text: 'Dispensary Counter'
-      },
-      {
-        path: "checkout", 
-        Route: Checkout,
         text: 'Dispensary Counter',
-        subtext: 'checkout'
-      },
-      {
-        path: "print-invoice",
-        Route: PrintInvoice,
-        text: 'Dispensary Counter',
-        subtext: 'checkout'
       },
       {
         path: "create-invoice",
         Route: CreateInvoice,
         text: 'Dispensary Counter',
-        subtext: 'create an invoice'
+        subtext: 'create an invoice',
+        prevRoute: '/inbounds'
+      },
+      {
+        path: "checkout", 
+        Route: Checkout,
+        text: 'Dispensary Counter',
+        subtext: 'checkout',
+        prevRoute: 'create-invoice'
+      },
+      {
+        path: "print-invoice",
+        Route: PrintInvoice,
+        text: 'Dispensary Counter',
+        subtext: 'checkout',
+        prevRoute: 'checkout'
       },
       {
         path: 'order-confirmed',
@@ -53,6 +57,13 @@ export default withRoutes( {
         Route: Application,
         text: 'Dispensary Counter',
         subtext: 'view online order'
+      },
+      {
+        path: 'invoice-report',
+        Route: InvoiceCR,
+        text: 'Dispensary Counter',
+        subtext: 'Inbounds - custom report'
       }
-  ]}
+    ]
+  }
   )

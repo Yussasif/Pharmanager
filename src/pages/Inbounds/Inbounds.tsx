@@ -5,7 +5,7 @@ import  '../../scss/Pages.scss'
 
 import classes from '../../components/Button/button.module.scss'
 
-import CustomTable from '../../components/tables/Table'
+import CustomTable from '../../components/Tables/Table'
 
 
 const Inbounds: React.FC = () => {

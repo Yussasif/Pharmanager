@@ -18,8 +18,12 @@
 }
 
 .counter-item-session::-webkit-scrollbar-thumb {
-    background-color: #c4c4c4;
+    background-color: transparent;
     border-radius: 100vh;
+}
+
+.counter-item-session:hover::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
 }
 .counter-item-session::-webkit-scrollbar-track {
     display: none;
@@ -33,7 +37,7 @@
     margin-bottom: 10px;
     width: 60%;
 }
-.delivery-info .subcontainer {
+.subcontainer {
     width: 98%;
 }
 .delivery-info::-webkit-scrollbar {
@@ -42,15 +46,19 @@
 }
 
 .delivery-info::-webkit-scrollbar-thumb {
-    background-color: #c4c4c4;
+    background-color: transparent;
     border-radius: 100vh;
 }
+
+.delivery-info:hover::-webkit-scrollbar-thumb {
+    background-color: #c4c4c4;
+}
+
 .delivery-info::-webkit-scrollbar-track {
     display: none;
 }
 
 .counter-total {
-    padding: 0 2em;
     width: 100%;
 }
 .calculations, .total {
