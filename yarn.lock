@@ -1397,7 +1397,7 @@
     clsx "^1.0.4"
     prop-types "^15.7.2"
 
-"@devexpress/dx-react-chart@4.0.4":
+"@devexpress/dx-react-chart@^4.0.4", "@devexpress/dx-react-chart@4.0.4":
   version "4.0.4"
   resolved "https://registry.npmjs.org/@devexpress/dx-react-chart/-/dx-react-chart-4.0.4.tgz"
   integrity sha512-vr4qac+zxrzL5nigwisIsRcQHEk+krPs8PwlB39H5iM6V+ctdtfj5LUdXTuto7im9uo58rL+wYW4akKllJDIeg==
