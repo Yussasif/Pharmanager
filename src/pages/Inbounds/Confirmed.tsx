@@ -1,5 +1,5 @@
 import React from 'react'
-import LoadImage from '../../components/Image'
+import LoadImage from '../../components/LoadImage/Image'
 import bigAvatar from '../../assets/svg/bigAvatar.svg'
 import {Button} from '@mui/material';
 import './index.css'

@@ -11,11 +11,12 @@ interface props {
     image: string
     drugName: string
     drugType: string
+    onClick: Function
 }
 
-const Inventory : React.FC<props> = ({image, drugName, drugType}) => {
+const Inventory : React.FC<props> = ({image, drugName, drugType, onClick}) => {
   return (
-    <div className='card'>
+    <div className='card' onClick={()=>onClick()}>
         <div className='image-card'>
             <img alt="img" src={image} height="100%" width="100%"/>
             <span className='drug-type'>{drugType}</span>

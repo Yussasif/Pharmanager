@@ -1,8 +1,9 @@
 import React from 'react'
+import ReportChart from '../../components/ReportChart'
 
 const Manager = () => {
   return (
-    <div>Manager</div>
+    <ReportChart/>
   )
 }
 

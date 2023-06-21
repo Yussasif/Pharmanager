@@ -15,7 +15,7 @@
 }
 
 .counter-box h3 {
-    padding: 2em;
+    padding: 2em 3.3em;
     background-color: #eeeaea;
     color: #4B4B4B;
     font-weight: 100;
@@ -38,7 +38,11 @@
     padding-top: 1em;
 }
 .price .lower-box {
-    padding-left: 2em;
+    padding-left: 2.6em;
+}
+
+.price h3 {
+    padding-left: 3.3em;
 }
 .price .lower-box div {
     padding-top: .5em;

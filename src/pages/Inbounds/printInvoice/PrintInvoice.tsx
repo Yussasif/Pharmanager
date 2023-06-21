@@ -1,11 +1,12 @@
 import React from 'react'
 import CounterPrice from '../../../components/CounterPrice'
-import { Grid, TextField, Box, Button} from '@mui/material';
+import { Grid, TextField, Box} from '@mui/material';
 
 import { styled } from '@mui/material/styles';
 import Radio, { RadioProps } from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { Link } from 'react-router-dom';
 
 const BpIcon = styled('span')(({ theme }) => ({
   borderRadius: '50%',
@@ -48,6 +49,8 @@ const PrintInvoice: React.FC = () => {
 	return (
 		<div className='block-invoice'>
 			<div className="counter-item-session">
+				<div className="subcontainer">
+
 				<CounterPrice price='#40.00'/>
 				<CounterPrice price='#40.00'/>
 				<div className="counter-total">
@@ -64,10 +67,18 @@ const PrintInvoice: React.FC = () => {
 							<p>Total</p>
 							<p>#3000</p>
 					</div>
-					<Button sx={{
-						width: '100%',
-						backgroundColor: '#009fe3',
-					}} variant="contained" >Print Invoice</Button>
+					<Link to="/inbounds/order-confirmed">
+					
+						<div style={{
+							width: '100%',
+							backgroundColor: '#009fe3',
+							color: 'white',
+							padding: '.4em',
+							marginTop: '1em',
+							textAlign: 'center'
+						}} >Print Invoice</div>
+					</Link>
+				</div>
 				</div>
 			</div>
 			<div className="delivery-info">

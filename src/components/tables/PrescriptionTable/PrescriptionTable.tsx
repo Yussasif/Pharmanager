@@ -1,7 +1,6 @@
 import { tableHeading, filterOptions, listOfPrescriptions, filterParameters } from "./prescriptionData";
 import { useState, useEffect, Key } from "react";
 import styles from './tables.module.scss';
-import Header from "../../Header/Header";
 import { InlineIcon } from '@iconify/react';
 import filterPrescriptions from "./utils/filterPrescriptions";
 import { PrescriptionItem } from "./utils/model";
@@ -54,7 +53,6 @@ const Table: React.FC = () => {
     return (
         <div>
             {/* When this table component finally added to its parent component, remove the Header component from this component and place it in the parent compnay. This will help to reduce the number of props passed to the table component */}
-            <Header text='Prescription Manager' subtext='All Prescriptions' />
             <div className={styles.filter_bar}>
                 <div className={styles.filter_container}>
                     {filterOptions.map((option, index) => (

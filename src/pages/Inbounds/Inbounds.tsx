@@ -5,7 +5,8 @@ import  '../../scss/Pages.scss'
 
 import classes from '../../components/Button/button.module.scss'
 
-import CustomTable from '../../components/tables/Table'
+import CustomTable from '../../components/Tables/Table'
+import { Link } from 'react-router-dom'
 
 
 const Inbounds: React.FC = () => {
@@ -46,7 +47,9 @@ const Inbounds: React.FC = () => {
           btnValue={'View custom report'}
         /> */}
         <button className={classes.btn}>
-          View custom report
+          <Link to='/inbounds/view-report'>
+            View custom report
+          </Link>
         </button>
       </div>
       {/* table section */}
