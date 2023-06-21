@@ -11,15 +11,6 @@ import classes from './Report.module.scss'
 // interface props {
 //     data?: data[]
 // }
-const data = [
-    { argument:'Monday', value:40 },
-    { argument:'Tuesday', value:30 },
-    
-  ];
-  const schemeCollection = [
-    "#938AF5",
-    "#9FF1CA"
-  ];
 
 const ReportChart: React.FC = (props) => {
     // const [scheme, setScheme ] = useState('')
