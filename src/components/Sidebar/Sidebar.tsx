@@ -75,6 +75,7 @@ interface props {
 
 export default function MiniDrawer({toggler}: props) {
   const [open, setOpen] = React.useState(true);
+  const [subRoute, setSubRoute] = React.useState('')
   const [activeIndex, setActiveIndex] = React.useState(1);
   const location = useLocation();
 
@@ -90,136 +91,182 @@ export default function MiniDrawer({toggler}: props) {
   };
   
   React.useEffect(() => {
-    const curPath = window.location.pathname.split("/")[1];
+    const curPath = window.location.pathname.split("/");
+    setSubRoute(curPath.join('/'))
     const sideBarNav = [...sidebarNavAbove, ...sidebarNavBelow]
-    const activeItem = sideBarNav.findIndex((item) => item.section === curPath);
-    setActiveIndex(curPath.length === 0 ? 0 : activeItem);
+    const activeItem = sideBarNav.findIndex((item) => item.section === curPath[1]);
+    setActiveIndex(curPath.join('/') === '/' ? 0 : activeItem);
   }, [location]);
   return (
     <div className={classes.sidebar}  style={{ 
       display: 'flex',
-      flexGrow: 1,
+      // flexGrow: 1,
     }}
+    
     >
-      <CssBaseline />
-      <Drawer className="bar"
-      PaperProps={{
-        sx: {
-          backgroundColor: "#009FE3",
-          color: "white",
-        },
-        style: {
-          width: open? '250px': '70px',
-        },
-      }}
-      variant="permanent" open={open}>
-        <Box
-        sx={{
-          display: 'flex',
-          justifyContent: open ? 'space-between' : 'center',
-          alignItems: "center"
-
+      <div className={classes.sidebar__content}>
+        
+        <CssBaseline />
+        <Drawer className="bar"
+        PaperProps={{
+          sx: {
+            backgroundColor: "#009FE3",
+            color: "white",
+          },
+          style: {
+            width: open? '300px': '70px',
+          },
         }}
-      >
-            {open && <div className={classes.sidebar__logo}>
-                <img src={images.logo} alt="digikala" />
-            </div>}
-            <DrawerHeader>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-            >
-                {open ? <ChevronLeftIcon 
-                onClick={handleDrawerClose}/> : 
-                <MenuIcon
-                onClick={handleDrawerOpen}/>}
-            </IconButton>
-            </DrawerHeader>
-      </Box>
-        <List>
-          {sidebarNavAbove.map((nav, index) => (
-            <Link
-            to={nav.link}
-            key={`nav-${index}`}
-            className={`${classes.sidebar__menu__item} ${
-              activeIndex === nav.id && classes.active
-            }`}
-          >
-            <ListItem key={nav.text} disablePadding sx={{ 
-              display: 'block',
-              marginTop: '15px',
-              marginBottom: '15px',
-        }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                  "&:hover": {backgroundColor: "transparent", color: "inherit"}
-                }}
-                >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                  >
-            <div className={classes.sidebar__menu__item__icon}>
-                  <Icon color={activeIndex === nav.id? "black": "white"} icon={nav.icon} />
-            </div>
-                </ListItemIcon>
-                <ListItemText  primary={nav.text} sx={{ opacity: open ? 1 : 0}} 
-                />
-              </ListItemButton>
-            </ListItem>
-            </Link>
-          ))}
-        </List>
-        <Divider sx={{
-          marginTop: '30px',
-          marginBottom: '30px',
-          borderBottom: '2px solid white',
-          width: '90%',
-          alignSelf: 'center',
-        }}/>
-        <List>
-          {sidebarNavBelow.map((nav, index) => (
-            <Link
-            to={nav.link}
-            key={`nav-${index}`}
-            className={`${classes.sidebar__menu__item} ${
-              activeIndex === nav.id && classes.active
-            }`}>
+        variant="permanent" open={open}>
+          <Box
+          sx={{
+            display: 'flex',
+            justifyContent: open ? 'space-between' : 'center',
+            alignItems: "center"
 
-            <ListItem key={nav.text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                  "&:hover": {backgroundColor: "transparent", color: "inherit"}
-                }}
-                >
-                <ListItemIcon
+          }}
+        >
+              {open && <div className={classes.sidebar__logo}>
+                  <img src={images.logo} alt="digikala" />
+              </div>}
+              <DrawerHeader>
+              <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+              >
+                  {open ? <ChevronLeftIcon 
+                  onClick={handleDrawerClose}/> : 
+                  <MenuIcon
+                  onClick={handleDrawerOpen}/>}
+              </IconButton>
+              </DrawerHeader>
+        </Box>
+          <List>
+            {sidebarNavAbove.map((nav, index) => (
+              <ListItem key={nav.text} disablePadding sx={{ 
+                display: 'block',
+                marginTop: '15px',
+                marginBottom: '15px',
+          }}>
+              <Link
+              to={nav.link}
+              key={`nav-${index}`}
+              className={`${classes.sidebar__menu__item} ${
+                activeIndex === nav.id && classes.active
+              }`}
+            >
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                    "&:hover": {backgroundColor: "transparent", color: "inherit"}
                   }}
                   >
-                  <div className={classes.sidebar__menu__item__icon}>
-                  <Icon color={activeIndex === nav.id? "black": "white"} icon={nav.icon} />
-            </div>
-                </ListItemIcon>
-                <ListItemText primary={nav.text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          ))}
-        </List>
-      </Drawer>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                    >
+              <div className={classes.sidebar__menu__item__icon}>
+                    <Icon color={activeIndex === nav.id? "black": "white"} icon={nav.icon} />
+              </div>
+                  </ListItemIcon>
+                  <ListItemText  primary={nav.text} sx={{ opacity: open ? 1 : 0}} 
+                  />
+                </ListItemButton>
+                </Link>
+                {nav.subList && activeIndex === nav.id &&<List>
+                  {nav.subList.map((nav, index) => (
+                    <ListItem key={nav.text} disablePadding sx={{ 
+                      display: open? 'block': 'none',
+                marginTop: '15px',
+                marginBottom: '15px',
+                marginLeft: '2em'
+              }}>
+                <Link
+              to={nav.link}
+              key={`nav-${index}`}
+              className={`${classes.sidebar__menu__item} ${
+                subRoute === nav.link && classes.active
+              }`}
+            >
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                    "&:hover": {backgroundColor: "transparent", color: "inherit"}
+                  }}
+                  >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                    >
+              <div className={classes.sidebar__menu__item__icon}>
+                    <Icon color={subRoute === nav.link? "black": "white"} icon={nav.icon} />
+              </div>
+                  </ListItemIcon>
+                  <ListItemText  primary={nav.text} sx={{ opacity: open ? 1 : 0}} 
+                  />
+                </ListItemButton>
+                </Link>
+              </ListItem>)
+              )}
+                </List>}
+              </ListItem>
+            ))}
+          </List>
+          <Divider sx={{
+            marginTop: '30px',
+            marginBottom: '30px',
+            borderBottom: '2px solid white',
+            width: '90%',
+            alignSelf: 'center',
+          }}/>
+          <List>
+            {sidebarNavBelow.map((nav, index) => (
+              <Link
+              to={nav.link}
+              key={`nav-${index}`}
+              className={`${classes.sidebar__menu__item} ${
+                activeIndex === nav.id && classes.active
+              }`}>
+
+              <ListItem key={nav.text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                    "&:hover": {backgroundColor: "transparent", color: "inherit"}
+                  }}
+                  >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                    >
+                    <div className={classes.sidebar__menu__item__icon}>
+                    <Icon color={activeIndex === nav.id? "black": "white"} icon={nav.icon} />
+              </div>
+                  </ListItemIcon>
+                  <ListItemText primary={nav.text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            ))}
+          </List>
+        </Drawer>
+      </div>
     </div>
   );
 }

@@ -1,5 +1,14 @@
+interface nav {
+  id: number
+  link: string
+  section: string
+  icon: string
+  text: string
+  subList?: nav[]
+}
 
-const sidebarNavAbove = [
+
+const sidebarNavAbove: nav[] = [
   {
     id: 0,
     link: "/",
@@ -8,12 +17,35 @@ const sidebarNavAbove = [
     text: "Dashboard",
   },
   {
-
+    
     id: 1,
     link: "/inbounds",
     section: "inbounds",
     icon: "mdi:medicine",
     text: "Inbounds",
+    subList: [
+      {
+        id: 0,
+        link: "/inbounds/dispensary-counter",
+        section: "dispensary-counter",
+        icon: "lucide:layout-dashboard", //width:"20"
+        text: "Dispensary Counter",
+      },
+      {
+        id: 1,
+        link: "/inbounds/prescriptions",
+        section: "dispensary-counter",
+        icon: "lucide:layout-dashboard", //width:"20"
+        text: "Prescriptions",
+      },
+      {
+        id: 2,
+        link: "/inbounds/marketplace",
+        section: "dispensary-counter",
+        icon: "lucide:layout-dashboard", //width:"20"
+        text: "Marketplace",
+      },
+    ]
   },
   {
     id: 2,
@@ -46,7 +78,7 @@ const sidebarNavAbove = [
   
 ];
 
-const sidebarNavBelow = [
+const sidebarNavBelow: nav[] = [
   {
     id: 6,
     link: "/helpDesk",

@@ -22,6 +22,12 @@
 }
 
 .sidebar {
+  position: relative;
+  height: 100vh;
+  width: 300px;
+  &__content {
+    font-size: 12px;
+  }
   
   &.sidebar_close {
     width: 50px;

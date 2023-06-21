@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react"
 import { Box } from '@mui/material';
-import Profile from '../profile/Profile';
+import Profile from '../Profile/Profile';
 import classes from './Header.module.scss'
 
 

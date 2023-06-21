@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Paper from '@mui/material/Paper';
 import {
   Chart,
   PieSeries,
-  Title,
 } from '@devexpress/dx-react-chart-material-ui';
 import classes from './Report.module.scss'
 import { Palette } from '@devexpress/dx-react-chart'
-interface data {
-    argument: string
-    value: number
-}
+// interface data {
+//     argument: string
+//     value: number
+// }
 
-interface props {
-    data?: data[]
-}
+// interface props {
+//     data?: data[]
+// }
 const data = [
     { argument:'Monday', value:40 },
     { argument:'Tuesday', value:30 },
@@ -26,7 +25,7 @@ const data = [
     "#9FF1CA"
   ];
 
-const ReportChart: React.FC<props> = ({}) => {
+const ReportChart: React.FC = (props) => {
     // const [scheme, setScheme ] = useState('')
     // const changeScheme = (e)=>{
     //     setScheme(schemeCollection[e.target.value]);

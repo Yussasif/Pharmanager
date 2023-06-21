@@ -2,7 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
-import Sidebar from "../components/sidebar/Sidebar";
+import Sidebar from "../components/Sidebar/Sidebar";
+import MediaQuery from "../components/MediaQuery";
 // import classes from './MainLayout.module.scss'
 
 const MainLayout: React.FC = () => {
@@ -24,7 +25,9 @@ const MainLayout: React.FC = () => {
           width: toggleWidth? 'calc(100% - 240px)': '95%',
         }}
       >
-        <Outlet/>
+        <MediaQuery>
+          <Outlet/>
+        </MediaQuery>
       </Box>
     </Box>
   );

@@ -7,10 +7,11 @@ import platform from '../../../assets/svg/platform.svg'
 import restuarant from '../../../assets/svg/restuarant.svg'
 import image from '../../../assets/svg/image.svg'
 import mail from '../../../assets/svg/mail.svg'
-import Category from '../../../components/categoricalInventory'
+import Category from '../../../components/CategoricalInventory'
 import LoadImage from '../../../components/LoadImage/Image'
-import SearchBox from '../../../components/searchBox/SearchBox'
+import SearchBox from '../../../components/SearchBox/SearchBox'
 import Inventory from '../../../components/Inventorys'
+import Container from '../../../components/Container'
 
 const myArray = [
 	{
@@ -72,7 +73,9 @@ const CreateInvoice: React.FC<props> = (props) => {
 		setSearch(text)
 	}
 	return (
-		<div className='inbound'>
+		<Container type="blue-border">
+			<>
+			
 			<LoadImage callback={()=> {}} alt="" className='page-image' imagePath={image2} height="200px" width="200px" />
 			<div className="inbound-top">
 				<div className="restuarant-img">
@@ -163,7 +166,8 @@ const CreateInvoice: React.FC<props> = (props) => {
 				}
 				
 			</div>
-		</div>
+			</>
+		</Container>
 	)
 }
 
