@@ -19,7 +19,7 @@ import classes from "./Sidebar.module.scss";
 
 import {sidebarNavAbove, sidebarNavBelow} from "../../config/sidebarNav";
 
-const drawerWidth = 250;
+const drawerWidth = 300;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -191,7 +191,7 @@ export default function MiniDrawer({toggler}: props) {
               to={nav.link}
               key={`nav-${index}`}
               className={`${classes.sidebar__menu__item} ${
-                subRoute === nav.link && classes.active
+                subRoute === nav.link && classes.subnav
               }`}
             >
                 <ListItemButton

@@ -6,6 +6,7 @@ import CreateInvoice from "./createInvoice";
 import Confirmed from "./Confirmed";
 import Application from "./Info";
 import InvoiceCR from "./invoice-cr";
+import DispensaryTable from "./dispensaryTable";
 
 export default withRoutes( {
      subRoutes: [
@@ -15,7 +16,7 @@ export default withRoutes( {
         text: 'Dispensary Counter',
       },
       {
-        path: "create-invoice",
+        path: "add-new-purchase",
         Route: CreateInvoice,
         text: 'Dispensary Counter',
         subtext: 'create an invoice',
@@ -59,10 +60,18 @@ export default withRoutes( {
         subtext: 'view online order'
       },
       {
-        path: 'invoice-report',
+        path: 'view-report',
         Route: InvoiceCR,
         text: 'Dispensary Counter',
-        subtext: 'Inbounds - custom report'
+        subtext: 'Inbounds - custom report',
+        prevRoute: '/inbounds'
+      },
+      {
+        path: 'view-all-purchases',
+        Route: DispensaryTable,
+        text: 'Dispensary Counter',
+        subtext: 'All inbounds',
+        prevRoute: '/inbounds'
       }
     ]
   }

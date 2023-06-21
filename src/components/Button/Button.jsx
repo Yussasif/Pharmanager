@@ -12,6 +12,7 @@ import { Icon } from '@iconify/react';
 // import { makeStyles } from '@material-ui/core/styles';
 
 import classes from './button.module.scss'
+import { Link } from 'react-router-dom';
 
 const CustomButton = ({bgColor, txtColor, btnValue}) => {
   // let pop = true;
@@ -31,11 +32,15 @@ const CustomButton = ({bgColor, txtColor, btnValue}) => {
             <Menu {...bindMenu(popupState)}>
               <MenuItem onClick={popupState.close}>
                 <Icon icon="material-symbols:add-circle-rounded" className={classes.icon}/>
-                Add new purchase
+                <Link to='/inbounds/add-new-purchase'>
+                  Add new purchase
+                </Link>
               </MenuItem>
               <MenuItem onClick={popupState.close}>
                 <Icon icon="ic:round-remove-red-eye" className={classes.icon}/>
-                View all purchases
+                <Link to='/inbounds/view-all-purchases'>
+                  View all purchases
+                </Link>
               </MenuItem>
             </Menu>
           </React.Fragment>

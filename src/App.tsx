@@ -13,6 +13,7 @@ import Crm from "./pages/Crm";
 import BankOffice from "./pages/BackOffice";
 import Settings from "./pages/Settings";
 import HelpDesk from "./pages/HelpDesk";
+import PrescriptionTable from "./components/tables/PrescriptionTable/PrescriptionTable";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 
@@ -30,6 +31,7 @@ function App() {
               <Route path="/bankOffice" element={<BankOffice />}/>
               <Route path="/settings" element={<Settings />}/>
               <Route path="/helpDesk" element={<HelpDesk />}/>
+              <Route path="/table" element={<PrescriptionTable />} />
             </Route>
           {/* </Route> */}
         </Routes>

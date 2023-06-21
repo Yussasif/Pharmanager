@@ -26,7 +26,7 @@ const sidebarNavAbove: nav[] = [
     subList: [
       {
         id: 0,
-        link: "/inbounds/dispensary-counter",
+        link: "/inbounds",
         section: "dispensary-counter",
         icon: "lucide:layout-dashboard", //width:"20"
         text: "Dispensary Counter",
