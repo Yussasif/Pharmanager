@@ -1,12 +1,8 @@
 import React from 'react';
 
 import Paper from '@mui/material/Paper';
-import {
-  Chart,
-  PieSeries,
-} from '@devexpress/dx-react-chart-material-ui';
+
 import classes from './Report.module.scss'
-import { Palette } from '@devexpress/dx-react-chart'
 // interface data {
 //     argument: string
 //     value: number
@@ -38,19 +34,11 @@ const ReportChart: React.FC = (props) => {
     }}>
         <h4>Purchase summary</h4>
         <div className={classes.chart}>
-            <Chart width={200}
-            height={200}
-            data={data}
-            >
-                <Palette scheme={schemeCollection}/>
-            <PieSeries valueField="value" argumentField="argument"
-            innerRadius={0.75}
-            />
+            
             <div className={classes.chart__middle_text}>
                 <p>Total</p>
                 <p>$20,000.00</p>
             </div>
-            </Chart>
         </div>
         <div className={classes.chart__line}>
             <div className={`${classes.chart__circle} ${classes.chart__green}`}></div>
