@@ -1,7 +1,6 @@
 import { tableHeading, filterOptions, listOfPrescriptions, filterParameters } from "./prescriptionData";
 import { useState, useEffect, Key } from "react";
 import styles from './tables.module.scss';
-import Header from "../../Header/Header";
 import { InlineIcon } from '@iconify/react';
 import filterPrescriptions from "./utils/filterPrescriptions";
 import { PrescriptionItem } from "./utils/model";
