@@ -27,7 +27,7 @@ export default withRoutes( {
         Route: Checkout,
         text: 'Dispensary Counter',
         subtext: 'checkout',
-        prevRoute: 'create-invoice'
+        prevRoute: 'add-new-purchase'
       },
       {
         path: "print-invoice",
