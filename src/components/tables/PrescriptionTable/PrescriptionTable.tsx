@@ -1,5 +1,5 @@
 import { tableHeading, filterOptions, listOfPrescriptions, filterParameters } from "./prescriptionData";
-import { useState, useEffect, Key } from "react";
+import { useState, useEffect } from "react";
 import styles from './tables.module.scss';
 import { InlineIcon } from '@iconify/react';
 import filterPrescriptions from "./utils/filterPrescriptions";
@@ -57,10 +57,10 @@ const Table: React.FC = () => {
                 <div className={styles.filter_container}>
                     {filterOptions.map((option, index) => (
                         <div
-                        key={index}
-                        className={activeOption === option ? styles.active : ""}
-                        onClick={() => handleFilterChange(option)}
-                    >
+                            key={index}
+                            className={activeOption === option ? styles.active : ""}
+                            onClick={() => handleFilterChange(option)}
+                        >
                         {option}
                     </div>
                     ))}
@@ -74,18 +74,38 @@ const Table: React.FC = () => {
                 <thead>
                     <tr>
                         {tableHeading.map((heading, index) => {
-                            return <th key={index}>{index === 0 ? <div style={{display: 'flex', alignItems: 'center'}}><InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} /><span>{heading}</span></div> : heading}</th>
+                            return <th key={index}>{ index === 0 ? (
+                                <div style={{display: 'flex', alignItems: 'center'}}>
+                                    <InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} />
+                                    <span>{heading}</span>
+                                </div>
+                            ) : heading}</th>
                         })}
                     </tr>
                 </thead>
                 <tbody>
                     {filteredData.map((innerList, index ) => (
-                            <tr key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                                {innerList.map((data: {} | null | undefined, id: Key | null | undefined) => (
-                                    <td key={id} style={id === 0 ? {color: '#009FE3'} : {}} >{filterParameters && <div className=   {backGroundColorGenerator(data)}>{id === 0 ? <div><InlineIcon icon="tabler:square" style=  {{color: '#009FE3', marginRight: '10px'}} /><span>{data}</span></div> : <span>{data}</span>}</div>}</td>
-                                    ))}
-                                    <PopUpMenu parameters = { filterParameters } name = {`${innerList[-1]}`} />
-                            </tr>
+                        <tr key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                            {innerList.map((data: string, id: number) => (
+                                <td
+                                    key={id}
+                                    style={{color: id === 0 ? '#009FE3' : '#000000' }}
+                                >
+                                    {filterParameters && (
+                                        <div className={backGroundColorGenerator(data)}>
+                                            {id === 0 ?
+                                                <div>
+                                                    <InlineIcon icon="tabler:square" style={{color: '#009FE3', marginRight: '10px'}} />
+                                                    <span>{data}</span>
+                                                </div>
+                                                :
+                                                <span>{data}</span>}
+                                        </div>
+                                    )}
+                                </td>
+                                ))}
+                                <PopUpMenu parameters={ filterParameters } name={`${innerList[-1]}`} />
+                        </tr>
                     ))}
                 </tbody>
             </table>
