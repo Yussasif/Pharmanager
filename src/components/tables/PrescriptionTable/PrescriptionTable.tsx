@@ -30,7 +30,7 @@ const Table: React.FC<Props> = (props) => {
         } else {
           setActiveOption(selectedFilterOption);
         }
-    }, [selectedFilterOption]);
+    }, [selectedFilterOption, props.filter]);
 
     // Assign the return value of `filterPrescriptions` function to `filteredPrescriptions` variable
     const filteredPrescriptions: Data[] = filterPrescriptions(props.data, selectedFilterOption)
