@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CounterPrice from '../../../components/CounterPrice'
-import { Grid, TextField, Box} from '@mui/material';
+import { Grid, TextField, Box, MenuItem, Select, SelectChangeEvent, InputLabel, FormControl} from '@mui/material';
 
 import { styled } from '@mui/material/styles';
 import Radio, { RadioProps } from '@mui/material/Radio';
@@ -32,40 +32,44 @@ const BpCheckedIcon = styled(BpIcon)({
 
 // Inspired by blueprintjs
 function BpRadio(props: RadioProps) {
-  return (
-    <Radio
-      disableRipple
+	return (
+		<Radio
+		disableRipple
       color="default"
       checkedIcon={<BpCheckedIcon />}
       icon={<BpIcon />}
       {...props}
-    />
+	  />
   );
 }
 
 
 
 const PrintInvoice: React.FC = () => {
+	const [discount, setDiscount]  = useState('')
+	const handleChange = (event: SelectChangeEvent) => {
+		setDiscount(event.target.value as string);
+	  };
 	return (
 		<div className='block-invoice'>
 			<div className="counter-item-session">
 				<div className="subcontainer">
 
-				<CounterPrice price='#40.00'/>
-				<CounterPrice price='#40.00'/>
+				<CounterPrice price='₦40.00' width='350px'/>
+				<CounterPrice price='₦40.00' width='350px'/>
 				<div className="counter-total">
 					<div className='calculations'>
 							<p>Subtotal</p>
-							<p>#500</p>
-							<p>VAT</p>
-							<p>#500</p>
+							<p>₦500</p>
 							<p>Discount</p>
-							<p>#500</p>
+							<p className='discount'>- ₦500</p>
+							<p>VAT</p>
+							<p>₦500</p>
 						
 					</div>
 					<div className="total">
 							<p>Total</p>
-							<p>#3000</p>
+							<p>₦3000</p>
 					</div>
 					<Link to="/inbounds/order-confirmed">
 					
@@ -215,7 +219,7 @@ const PrintInvoice: React.FC = () => {
 					>
 						<FormControlLabel value="bank" control={<BpRadio />} label="Bank Transfer" />
 						<FormControlLabel value="cash" control={<BpRadio />} label="Cash" />
-						<FormControlLabel value="pos" control={<BpRadio />} label="Pos" />
+						<FormControlLabel value="pos" control={<BpRadio />} label="POS" />
 					</RadioGroup>
 				</form>
 				<form action="">
@@ -228,14 +232,27 @@ const PrintInvoice: React.FC = () => {
 					}}
 				>
 
-					<TextField
+					{/* <TextField
 						id="fixed"
 						label="Type"
 						type="text"
 						placeholder="Fixed value Discount"
 						fullWidth
 						margin="normal"
-						/>
+						/> */}
+						<FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Type</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={discount}
+          label="Type"
+          onChange={handleChange}
+        >
+          <MenuItem value={"Fixed value discount"}>Fixed value discount</MenuItem>
+          <MenuItem value={"Percentage discount"}>Percentage discount</MenuItem>
+        </Select>
+      </FormControl>
 					<TextField
 						id="value"
 						label="Enter Value"

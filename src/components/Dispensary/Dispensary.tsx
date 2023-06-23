@@ -3,7 +3,6 @@ import drugimage from './image.svg'
 
 const Dispensary: React.FC = () => {
     return (
-        <div className='drug-item-container'>
             <div className='drug-dispensary'>
                 <img src={drugimage} alt="drug" width="10px"/>
                 <div className='description'>
@@ -14,8 +13,6 @@ const Dispensary: React.FC = () => {
                     <p>View dispensary details</p>
                 </div>
             </div>
-            <hr />
-        </div>
     )
 }
 

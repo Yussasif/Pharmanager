@@ -6,6 +6,8 @@ export const backGroundColorGenerator: any = (data: string) => {
         ? styles.pending
         : data === "Quoted"
         ? styles.quoted
+        : data === "Rejected"
+        ? styles.quoted
         : data === "Dispensed"
         ? styles.dispensed
         : ""

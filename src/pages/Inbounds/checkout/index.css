@@ -1,13 +1,17 @@
 .checkout-page {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    grid-template-rows: auto  auto;
     padding: 2em;
 }
 
+.checkout-page .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
 
 .checkout-page .checkout-items {
-    width: 100%;
+    display: flex;
+    /* width: 100%; */
 }
 
 .checkout-items, .checkout-items div {
@@ -16,20 +20,21 @@
 }
 
 .checkout-items {
+    align-items: flex-end;
     flex-direction: column;
 }
 
-.checkout-items div, .checkout-items button {
+.checkout-items div, .checkout-items .c-button {
     background: #54A4CC;
     color: white;
     padding: .8em 2em;
     font-size: 12px;
     margin-top: 40px;
     border: none;
-    width: 100%;
+    width: 50%;
 }
 
-.checkout-items button {
+.checkout-items .c-button {
     background-color: #009fe3;
 }
 

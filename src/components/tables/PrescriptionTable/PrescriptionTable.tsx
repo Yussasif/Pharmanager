@@ -1,9 +1,8 @@
-import { tableHeading, filterOptions, listOfPrescriptions, filterParameters } from "./prescriptionData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Key } from "react";
 import styles from './tables.module.scss';
 import { InlineIcon } from '@iconify/react';
 import filterPrescriptions from "./utils/filterPrescriptions";
-import { PrescriptionItem } from "./utils/model";
+import { Data, Params } from "./utils/model";
 import { backGroundColorGenerator } from "./utils/backGroundColorGeneratore";
 import PopUpMenu from "./PopUpMenu";
 
@@ -13,23 +12,28 @@ import PopUpMenu from "./PopUpMenu";
 // Kindly note that the data displayed in the table including filter options and table heading is stored in `./prescriptionData.js` file
 // When creating your own table, specify the interface of your table data in the `./model.ts` file
 // The data to be displayed in the table is structured as an array of Objects. Each object represent a prescription to and it's details
+interface Props {
+    heading: string[]
+    filter: string[]
+    data: Data[]
+    params: Params[]
+}
 
-
-const Table: React.FC = () => {
-    const [selectedFilterOption, setSelectedFilterOption] = useState<string>(filterOptions[0]);  // selectedFilterOption holds the state of the current filterOption selected for display. The default is the
-    // first item of the filterOptions array
-    const [activeOption, setActiveOption] = useState(filterOptions[0]); // State to hold the default state fo the filter option(The first option in the array of filter option `filterOptions` by default)
+const Table: React.FC<Props> = (props) => {
+    const [selectedFilterOption, setSelectedFilterOption] = useState<string>(props.filter[0]);  // selectedFilterOption holds the state of the current filterOption selected for display. The default is the
+    // first item of the props.filter array
+    const [activeOption, setActiveOption] = useState(props.filter[0]); // State to hold the default state fo the filter option(The first option in the array of filter option `props.filter` by default)
 
     useEffect(() => {
-        if (filterOptions.length > 0 && !selectedFilterOption) { // If selectedFilterOption is not provided, set the first option as active
-          setActiveOption(filterOptions[0]);
+        if (props.filter.length > 0 && !selectedFilterOption) { // If selectedFilterOption is not provided, set the first option as active
+          setActiveOption(props.filter[0]);
         } else {
           setActiveOption(selectedFilterOption);
         }
     }, [selectedFilterOption]);
 
     // Assign the return value of `filterPrescriptions` function to `filteredPrescriptions` variable
-    const filteredPrescriptions: PrescriptionItem[] = filterPrescriptions(listOfPrescriptions, selectedFilterOption)
+    const filteredPrescriptions: Data[] = filterPrescriptions(props.data, selectedFilterOption)
 
     // Get the table data for filtered prescriptions
     const filteredData = filteredPrescriptions.map((prescription) => Object.values(prescription));
@@ -46,7 +50,7 @@ const Table: React.FC = () => {
     }
 
     // Check if prescriptionList is undefined or empty
-    if (!listOfPrescriptions || listOfPrescriptions.length === 0) {
+    if (!props.data || props.data.length === 0) {
         return <div>No prescriptions available.</div>;
     }
 
@@ -55,7 +59,7 @@ const Table: React.FC = () => {
             {/* When this table component finally added to its parent component, remove the Header component from this component and place it in the parent compnay. This will help to reduce the number of props passed to the table component */}
             <div className={styles.filter_bar}>
                 <div className={styles.filter_container}>
-                    {filterOptions.map((option, index) => (
+                    {props.filter.map((option, index) => (
                         <div
                             key={index}
                             className={activeOption === option ? styles.active : ""}
@@ -73,39 +77,38 @@ const Table: React.FC = () => {
             <table>
                 <thead>
                     <tr>
-                        {tableHeading.map((heading, index) => {
-                            return <th key={index}>{ index === 0 ? (
+                        {props.heading.map((heading, index) => {
+                            return <th key={index}>{index === 0 ? (
                                 <div style={{display: 'flex', alignItems: 'center'}}>
-                                    <InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} />
-                                    <span>{heading}</span>
+                                  <InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} />
+                                  <span>{heading}</span>
                                 </div>
-                            ) : heading}</th>
+                                ) : heading}</th>
                         })}
                     </tr>
                 </thead>
                 <tbody>
                     {filteredData.map((innerList, index ) => (
-                        <tr key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                            {innerList.map((data: string, id: number) => (
-                                <td
-                                    key={id}
-                                    style={{color: id === 0 ? '#009FE3' : '#000000' }}
-                                >
-                                    {filterParameters && (
-                                        <div className={backGroundColorGenerator(data)}>
-                                            {id === 0 ?
-                                                <div>
-                                                    <InlineIcon icon="tabler:square" style={{color: '#009FE3', marginRight: '10px'}} />
+                            <tr key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                                {innerList.map((data: string, id: number) => (
+                                    <td 
+                                      key={id} 
+                                      style={id === 0 ? {color: '#009FE3'} : {}} 
+                                      >
+                                      {props.params && 
+                                          <div className=   {backGroundColorGenerator(data)}>
+                                            {id === 0 ? 
+                                              <div>
+                                                  <InlineIcon icon="tabler:square" style=  {{color: '#009FE3', marginRight: '10px'}} />
                                                     <span>{data}</span>
-                                                </div>
-                                                :
-                                                <span>{data}</span>}
-                                        </div>
-                                    )}
-                                </td>
-                                ))}
-                                <PopUpMenu parameters={ filterParameters } name={`${innerList[-1]}`} />
-                        </tr>
+                                              </div> 
+                                              : 
+                                              <span>{data}</span>}
+                                          </div>}
+                                     </td>
+                                    ))}
+                                    <PopUpMenu parameters = { props.params } name = {`${innerList[-1]}`} />
+                            </tr>
                     ))}
                 </tbody>
             </table>
