@@ -4,10 +4,11 @@ import plus from './plus.svg'
 
 interface props {
     price : string
+    width? : string
 }
 
 
-const CounterPrice: React.FC<props> = ({price}) => {
+const CounterPrice: React.FC<props> = (props) => {
     const [count, setCount] = useState(1)
     const handleCounter = (type: string)=> {
         switch (type){
@@ -21,7 +22,9 @@ const CounterPrice: React.FC<props> = ({price}) => {
         }
     }
     return (
-        <div className='counter-box'>
+        <div className='counter-box' style={{
+            width: props.width? props.width: "410px"
+        }}>
             <div className="counter">
                 <h3>Quantity</h3>
                 <div className="lower-box">
@@ -34,7 +37,7 @@ const CounterPrice: React.FC<props> = ({price}) => {
                 <h3>Total fee</h3>
                 <div className="lower-box">
                     <span>Due Today</span>
-                    <div>{price}</div>
+                    <div>{props.price}</div>
                 </div>
             </div>
         </div>

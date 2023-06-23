@@ -1,10 +1,11 @@
 .counter-box {
     display: flex;
-    width: 100%;
     color: #252525;
     justify-content: space-between;
     margin-bottom: 1em;
+    margin-left: 1.4em;
     height: 170px;
+    width: 410px;
 }
 
 .counter-box .counter, .counter-box .price{

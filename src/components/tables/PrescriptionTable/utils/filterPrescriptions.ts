@@ -1,6 +1,6 @@
-import { PrescriptionItem } from "./model";
+import { Data } from "./model";
 
-type filterPrescriptionFunction = (value: PrescriptionItem[], selectedFilterOption: string) => []
+type filterPrescriptionFunction = (value: Data[], selectedFilterOption: string) => []
 
 const filterPrescriptions: filterPrescriptionFunction = (value, selectedFilterOption) => {
     const filtered: any = value.filter((item) => {
