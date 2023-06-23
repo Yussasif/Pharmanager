@@ -61,10 +61,10 @@ const Table: React.FC<Props> = (props) => {
                 <div className={styles.filter_container}>
                     {props.filter.map((option, index) => (
                         <div
-                        key={index}
-                        className={activeOption === option ? styles.active : ""}
-                        onClick={() => handleFilterChange(option)}
-                    >
+                            key={index}
+                            className={activeOption === option ? styles.active : ""}
+                            onClick={() => handleFilterChange(option)}
+                        >
                         {option}
                     </div>
                     ))}
@@ -78,15 +78,34 @@ const Table: React.FC<Props> = (props) => {
                 <thead>
                     <tr>
                         {props.heading.map((heading, index) => {
-                            return <th key={index}>{index === 0 ? <div style={{display: 'flex', alignItems: 'center'}}><InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} /><span>{heading}</span></div> : heading}</th>
+                            return <th key={index}>{index === 0 ? (
+                                <div style={{display: 'flex', alignItems: 'center'}}>
+                                  <InlineIcon icon="tabler:square" style={{color:'#009FE3', marginRight: '10px'}} />
+                                  <span>{heading}</span>
+                                </div>
+                                ) : heading}</th>
                         })}
                     </tr>
                 </thead>
                 <tbody>
                     {filteredData.map((innerList, index ) => (
                             <tr key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                                {innerList.map((data: {} | null | undefined, id: Key | null | undefined) => (
-                                    <td key={id} style={id === 0 ? {color: '#009FE3'} : {}} >{props.params && <div className=   {backGroundColorGenerator(data)}>{id === 0 ? <div><InlineIcon icon="tabler:square" style=  {{color: '#009FE3', marginRight: '10px'}} /><span>{data}</span></div> : <span>{data}</span>}</div>}</td>
+                                {innerList.map((data: string, id: number) => (
+                                    <td 
+                                      key={id} 
+                                      style={id === 0 ? {color: '#009FE3'} : {}} 
+                                      >
+                                      {props.params && 
+                                          <div className=   {backGroundColorGenerator(data)}>
+                                            {id === 0 ? 
+                                              <div>
+                                                  <InlineIcon icon="tabler:square" style=  {{color: '#009FE3', marginRight: '10px'}} />
+                                                    <span>{data}</span>
+                                              </div> 
+                                              : 
+                                              <span>{data}</span>}
+                                          </div>}
+                                     </td>
                                     ))}
                                     <PopUpMenu parameters = { props.params } name = {`${innerList[-1]}`} />
                             </tr>
