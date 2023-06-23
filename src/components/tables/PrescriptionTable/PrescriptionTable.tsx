@@ -1,4 +1,4 @@
-import { useState, useEffect, Key } from "react";
+import { useState, useEffect } from "react";
 import styles from './tables.module.scss';
 import { InlineIcon } from '@iconify/react';
 import filterPrescriptions from "./utils/filterPrescriptions";
