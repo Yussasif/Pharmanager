@@ -28,7 +28,7 @@ function PrescriptionsTableRow({prescription, filterBy}) {
               <td className="flex items-center  w-[150px] mr-3 text-sm">
                 <input
                   type="checkbox"
-                  className="cursor-pointer [&:not(input:checked)]:appearance-none outline-none accent-#009fe3 h-5 w-5 border border-[#009fe3] rounded-md mr-2"
+                  className="cursor-pointer [&:not(input:checked)]:appearance-none outline-none accent-[#009fe3] h-5 w-5 border border-[#009fe3] rounded-md mr-2"
                 />
 
                 <label htmlFor="prescription" className="text-[#009fe3]">
